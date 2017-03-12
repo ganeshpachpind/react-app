@@ -8,7 +8,7 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-    entry: './app/js/app.js',
+    entry: path.join(__dirname, '/app/js/app.js'),
 
     output: {
         path: path.resolve(__dirname, 'build'),
