@@ -1,5 +1,11 @@
 var path = require('path');
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+    template: __dirname + '/app/index.html',
+    filename: 'index.html',
+    inject: 'body'
+});
 
 module.exports = {
     entry: './app/js/app.js',
@@ -19,5 +25,6 @@ module.exports = {
                 }
             }
         ]
-    }
-}
+    },
+    plugins: [HTMLWebpackPluginConfig]
+};
