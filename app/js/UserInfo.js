@@ -5,19 +5,23 @@ class UserInfo extends React.Component {
     constructor() {
         super();
         this.state = {
-            userName: "Welcome ganesh "
+            userName: "Welcome Ganesh "
         }
     }
 
-    updateUserName(e) {
-        this.setState({userName: e.target.value});
+    updateUserName() {
+        this.setState(
+            {
+                userName: this.userName.value
+            }
+        );
     }
 
     render() {
         return (
             <div>
                 <h1> User Name : </h1>  {this.state.userName}
-                <input type="text" onChange={this.updateUserName.bind(this)}/>
+                <input ref={(node) => this.userName = node} type="text" onChange={this.updateUserName.bind(this)}/>
             </div>
         );
     }
@@ -29,7 +33,7 @@ UserInfo.propTypes = {
     userType: (props, propName, component) => {
         if (!(propName in props)) {
             return new Error('Field is Required ')
-        } else if(props[propName].type !== 'string'){
+        } else if (props[propName].type !== 'string') {
             return new Error('required to be string')
         }
     }
