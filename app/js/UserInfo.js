@@ -21,5 +21,18 @@ class UserInfo extends React.Component {
             </div>
         );
     }
+
+
 }
+
+UserInfo.propTypes = {
+    userType: (props, propName, component) => {
+        if (!(propName in props)) {
+            return new Error('Field is Required ')
+        } else if(props[propName].type !== 'string'){
+            return new Error('required to be string')
+        }
+    }
+};
+
 export default UserInfo
